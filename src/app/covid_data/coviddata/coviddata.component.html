@@ -1,0 +1,86 @@
+
+<h1 class="head">Covid-19 Data</h1>
+<div class="mat-elevation-z8 ">
+    <table mat-table matTableExporter [dataSource]="coviddata" #exporter="matTableExporter" [hiddenColumns]="[0]" matSort>
+    
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- country Column -->
+        <ng-container matColumnDef="country">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Country Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+        </ng-container>
+      
+        <!-- cases Column -->
+        <ng-container matColumnDef="cases">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Cases </th>
+          <td mat-cell *matCellDef="let element"> {{element.cases}} </td>
+        </ng-container>
+      
+        <!-- todayCases Column -->
+        <ng-container matColumnDef="todayCases">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Today Cases </th>
+          <td mat-cell *matCellDef="let element"> {{element.todayCases}} </td>
+        </ng-container>
+      
+        <!-- deaths Column -->
+        <ng-container matColumnDef="deaths">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Death </th>
+          <td mat-cell *matCellDef="let element"> {{element.deaths}} </td>
+        </ng-container>
+      
+         <!-- todayDeaths Column -->
+         <ng-container matColumnDef="todayDeaths">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Today Death </th>
+            <td mat-cell *matCellDef="let element"> {{element.todayDeaths}} </td>
+          </ng-container>
+        
+          <!-- recovered Column -->
+          <ng-container matColumnDef="recovered">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Recovered </th>
+            <td mat-cell *matCellDef="let element"> {{element.recovered}} </td>
+          </ng-container>
+        
+          <!-- active Column -->
+          <ng-container matColumnDef="active">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Active </th>
+            <td mat-cell *matCellDef="let element"> {{element.active}} </td>
+          </ng-container>
+        
+          <!-- critical Column -->
+          <ng-container matColumnDef="critical">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Critical </th>
+            <td mat-cell *matCellDef="let element"> {{element.critical}} </td>
+          </ng-container>
+    
+           <!-- casePerOneMillion Column -->
+        <ng-container matColumnDef="casePerOneMillion">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Cases/1M </th>
+            <td mat-cell *matCellDef="let element"> {{element.casePerOneMillion}} </td>
+          </ng-container>
+        
+          <!-- deathsPerOneMillion Column -->
+          <ng-container matColumnDef="deathsPerOneMillion">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Death/1M </th>
+            <td mat-cell *matCellDef="let element"> {{element.deathsPerOneMillion}} </td>
+          </ng-container>
+        
+          <!-- tests Column -->
+          <ng-container matColumnDef="tests">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Total test </th>
+            <td mat-cell *matCellDef="let element"> {{element.tests}} </td>
+          </ng-container>
+        
+          <!-- testsPerOneMillion Column -->
+          <ng-container matColumnDef="testsPerOneMillion">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Test/1M </th>
+            <td mat-cell *matCellDef="let element"> {{element.testsPerOneMillion}} </td>
+          </ng-container>
+          
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>

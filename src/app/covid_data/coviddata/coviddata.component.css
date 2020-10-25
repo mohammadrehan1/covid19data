@@ -1,0 +1,13 @@
+/* styling for Table */
+table{
+    width: 100%;
+}
+th.mat-sort-header-sorted {
+    color: black;
+  }
+
+/* for heading */
+    .head{
+text-align: center;
+color: darkorchid;
+    }
